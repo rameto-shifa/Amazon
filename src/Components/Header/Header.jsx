@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Header.module.css'
+import { Link } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
@@ -13,9 +14,9 @@ const Header = () => {
                 <div className={classes.header__container}>
             <div className={classes.logo__container}>
                 <div>
-                <a href='#'>
+                <Link to='/'>
                     <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon-logo" />
-                </a>
+                </Link>
                 </div> 
                 <div className={classes.delivery}>
                 <span>
@@ -35,24 +36,24 @@ const Header = () => {
               <FaSearch size={25}/>
             </div>
             <div className={classes.order__container}>
-              <a href="#" className={classes.language}>
+              <Link to="/Payment" className={classes.language}>
                   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png" alt="US-flag" />
                   <select name="#" id="#">
                     <option value="">EN</option>
                   </select>
-                  </a>
-              <a href="#">
+                  </Link>
+              <Link to="/Auth">
                   <p>Hello, Sign in</p>
                   <span>Account & Lists</span>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/Orders">
                 <p>Returns</p>
                 <span>& Orders</span>
-              </a>
-              <a href="#" className={classes.cart}>
+              </Link>
+              <Link to="/cart" className={classes.cart}>
               <CiShoppingCart size={35}/>
                 <span>0</span>
-              </a>
+              </Link>
             </div>
             </div>
             </section>
