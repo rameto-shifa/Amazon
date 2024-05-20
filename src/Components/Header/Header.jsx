@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classes from './Header.module.css'
 import { Link } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import LowerHeader from './LowerHeader';
+import { DataContext } from '../DataProvider/DataProvider';
 
 const Header = () => {
+
+  const[{basket},dispatch]=useContext(DataContext)
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
+
   return (
               <>
               <section className={classes.fixed}>
@@ -52,13 +59,15 @@ const Header = () => {
               </Link>
               <Link to="/cart" className={classes.cart}>
               <CiShoppingCart size={35}/>
-                <span>0</span>
+                <span>{totalItem}</span>
               </Link>
             </div>
             </div>
             </section>
-            </section>
+            
             <LowerHeader/>
+
+            </section>
         </>
   )
 }

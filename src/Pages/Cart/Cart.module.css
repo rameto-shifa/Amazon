@@ -17,6 +17,13 @@
   display: flex;
   gap: 10px;
 }
+.cart__container h2,
+.cart__container h3 {
+  padding: 10px;
+}
+.cart__container hr {
+  margin: 10px;
+}
 .btn__container{
   display: flex;
   flex-direction: column;
@@ -34,13 +41,6 @@
 }
 .btn:hover svg{
   background-color: var(--primary-color);
-}
-.cart__container h2,
-.cart__container h3 {
-  padding: 10px;
-}
-.cart__container hr {
-  margin: 10px;
 }
 .subtotal {
   padding: 20px;
