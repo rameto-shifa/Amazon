@@ -105,12 +105,13 @@
   }
   .cart {
     position: relative;
+    right: 10px;
   }
   .cart span {
     position: absolute;
     font-weight: bold;
     top: -4px;
-    font-size: 25px;
+    font-size: 17px;
     background-color: #1a1a1a;
     left: 19px;
     color: orange;
