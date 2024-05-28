@@ -6,10 +6,12 @@ import { FaSearch } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import LowerHeader from './LowerHeader';
 import { DataContext } from '../DataProvider/DataProvider';
+import { auth } from '../Utility/firebase';
+
 
 const Header = () => {
 
-  const[{basket},dispatch]=useContext(DataContext)
+  const[{basket, user},dispatch]=useContext(DataContext)
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -40,7 +42,7 @@ const Header = () => {
                 <option value="">All</option>
               </select>
               <input type="text"  name='' placeholder='Search Amazon' />
-              <FaSearch size={25}/>
+              <FaSearch size={39}/>
             </div>
             <div className={classes.order__container}>
               <Link to="/Payment" className={classes.language}>
@@ -49,10 +51,23 @@ const Header = () => {
                     <option value="">EN</option>
                   </select>
                   </Link>
-              <Link to="/Auth">
-                  <p>Hello, Sign in</p>
-                  <span>Account & Lists</span>
-              </Link>
+                  <Link to={!user && "/auth"}>
+              <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => (user ? auth.signOut() : null)}>
+                      Sign Out
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
+            </Link>
               <Link to="/Orders">
                 <p>Returns</p>
                 <span>& Orders</span>
