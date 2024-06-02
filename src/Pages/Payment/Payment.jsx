@@ -51,6 +51,7 @@ function Payment() {
 
       console.log(response.data);
       const clientSecret = response.data?.clientSecret;
+      console.log(clientSecret)
 
       // 2. client side (react side confirmation)
       const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
@@ -63,7 +64,7 @@ function Payment() {
 // before this i have to open db at firebase around thirty five minutes on video
       // 3. after the confirmation --> order firestore database save, clear basket
 
-await db.collection("users").doc
+// await db.collection("users").doc
 
 
       await db
