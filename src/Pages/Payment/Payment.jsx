@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react";
-import classes from "./Payment.module.css";
-import LayOut from "../../Components/LayOut/LayOut";
-import { DataContext } from "../../Components/DataProvider/DataProvider";
-import ProductCard from "../../Components/Products/ProductCard";
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
-import { axiosInstance} from "../../Api/axios";
-import { db } from "../../Components/Utility/firebase";
-import { useNavigate } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
-import { Type } from "../../Components/Utility/action.type";
+import React, { useContext,useState } from 'react'
+import classes from "./Payment.module.css"
+import LayOut from "../../Components/LayOut/LayOut"
+import { DataContext } from "../../Components/DataProvider/DataProvider"
+import ProductCard from "../../Components/Products/ProductCard"
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
+import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat"
+import { axiosInstance} from "../../Api/axios"
+import { db } from "../../Components/Utility/firebase"
+import { useNavigate } from "react-router-dom"
+import { ClipLoader } from "react-spinners"
+import { Type } from "../../Components/Utility/action.type"
 function Payment() {
   const [{ user, basket }, dispatch] = useContext(DataContext);
   // const [{ user, basket }] = useContext(DataContext);
